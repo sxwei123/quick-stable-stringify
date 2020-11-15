@@ -1,4 +1,16 @@
 declare module 'fast-json-stable-stringify' {
-  function stringify(obj: any): string;
+  interface KeyValue {
+    key: string;
+    value: any;
+  }
+
+  function stringify(
+    obj: any,
+    opts?: {
+      cmp?: (a: KeyValue, b: KeyValue) => number;
+      cycles?: boolean;
+    }
+  ): string;
+
   export = stringify;
 }
