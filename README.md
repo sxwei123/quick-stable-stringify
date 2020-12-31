@@ -22,6 +22,7 @@ Node.JS with CommonJS:
 
 ```js
 const stringify = require("quick-stable-stringify");
+
 const obj = { c: 8, b: [{ z: 6, y: 5, x: 4 }, 7], a: 3 };
 console.log(stringify(obj));
 ```
@@ -37,17 +38,23 @@ console.log(stringify(obj));
 
 ## Options
 
+Options can be a comparator function or an object which has two optional properties: `cmp` and `cycles`.
+
 ### cmp
 
-If `opts` is given, you can supply an `opts.cmp` to have a custom comparison
-function for object keys. Your function `opts.cmp` is called with these
-parameters:
+`opts.cmp` is the custom comparator function that user can specify. If custom comparator function is not provided, the JSON string of an object will be sorted by the alphanumeric order of object keys.
+The type of the comparator function is defined as:
 
-```js
-opts.cmp({ key: akey, value: avalue }, { key: bkey, value: bvalue });
+```ts
+interface KeyValue {
+  key: string;
+  value: any;
+}
+
+type ComparatorFunction = (a: KeyValue, b: KeyValue) => number;
 ```
 
-For example, to sort on the object key names in reverse order you could write:
+For example, to sort on the object key names in reverse order:
 
 ```js
 var stringify = require("quick-stable-stringify");
@@ -65,14 +72,14 @@ which results in the output string:
 {"c":8,"b":[{"z":6,"y":5,"x":4},7],"a":3}
 ```
 
-Or if you wanted to sort on the object values in reverse order, you could write:
+To sort on the object values in reverse order:
 
-```
-var stringify = require('fast-json-stable-stringify');
+```js
+var stringify = require("quick-stable-stringify");
 
-var obj = { d: 6, c: 5, b: [{z:3,y:2,x:1},9], a: 10 };
+var obj = { d: 6, c: 5, b: [{ z: 3, y: 2, x: 1 }, 9], a: 10 };
 var s = stringify(obj, function (a, b) {
-    return a.value < b.value ? 1 : -1;
+  return a.value < b.value ? 1 : -1;
 });
 console.log(s);
 ```
