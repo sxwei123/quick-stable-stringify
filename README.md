@@ -18,16 +18,21 @@ yarn add quick-stable-stringify
 
 ## Examples
 
+Node.JS with CommonJS:
+
 ```js
-var stringify = require("quick-stable-stringify");
-var obj = { c: 8, b: [{ z: 6, y: 5, x: 4 }, 7], a: 3 };
+const stringify = require("quick-stable-stringify");
+const obj = { c: 8, b: [{ z: 6, y: 5, x: 4 }, 7], a: 3 };
 console.log(stringify(obj));
 ```
 
-output:
+Typescript or modern Javascript environment:
 
-```
-{"a":3,"b":[{"x":4,"y":5,"z":6},7],"c":8}
+```ts
+import stringify from "quick-stable-stringify";
+
+const obj = { c: 8, b: [{ z: 6, y: 5, x: 4 }, 7], a: 3 };
+console.log(stringify(obj));
 ```
 
 ## Options
