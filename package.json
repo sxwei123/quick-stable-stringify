@@ -1,6 +1,6 @@
 {
   "name": "quick-stable-stringify",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Deterministic `JSON.stringify()` - a faster version of Evgeny's fast-json-stable-strigify. Built with Typescript and modern Javascript.",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
