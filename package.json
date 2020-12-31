@@ -1,7 +1,7 @@
 {
   "name": "quick-stable-stringify",
   "version": "1.0.0",
-  "description": "deterministic `JSON.stringify()` - a faster version of Evgeny's fast-json-stable-strigify. Built with Typescript and modern Javascript.",
+  "description": "Deterministic `JSON.stringify()` - a faster version of Evgeny's fast-json-stable-strigify. Built with Typescript and modern Javascript.",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -23,7 +23,6 @@
     "faster-stable-stringify": "latest",
     "jest": "^26.6.3",
     "json-stable-stringify": "latest",
-    "nyc": "^14.1.0",
     "pre-commit": "^1.2.2",
     "source-map-support": "^0.5.19",
     "ts-jest": "^26.4.4",
@@ -63,20 +62,6 @@
     }
   ],
   "license": "MIT",
-  "nyc": {
-    "extension": [
-      ".ts"
-    ],
-    "exclude": [
-      "test",
-      "node_modules",
-      "**/*.d.ts"
-    ],
-    "reporter": [
-      "lcov",
-      "text-summary"
-    ]
-  },
   "engines": {
     "node": ">=10"
   }

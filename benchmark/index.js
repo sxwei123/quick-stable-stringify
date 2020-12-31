@@ -5,7 +5,7 @@ const suite = new Benchmark.Suite();
 const testData = require("./test.json");
 
 const stringifyPackages = {
-  "quick-stable-stringify": require("../index"),
+  "quick-stable-stringify": require("../dist/index"),
   "fast-json-stable-stringify": true,
   "json-stable-stringify": true,
   "fast-stable-stringify": true,
