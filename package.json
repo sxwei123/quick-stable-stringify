@@ -1,25 +1,40 @@
 {
-  "name": "fast-json-stable-stringify",
-  "version": "2.1.0",
-  "description": "deterministic `JSON.stringify()` - a faster version of substack's json-stable-strigify without jsonify",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "name": "quick-stable-stringify",
+  "version": "1.0.0",
+  "description": "deterministic `JSON.stringify()` - a faster version of Evgeny's fast-json-stable-strigify. Built with Typescript and modern Javascript.",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "dependencies": {},
   "devDependencies": {
+    "@types/jest": "^26.0.19",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
     "benchmark": "^2.1.4",
     "coveralls": "^3.0.0",
-    "eslint": "^6.7.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "fast-json-stable-stringify": "latest",
     "fast-stable-stringify": "latest",
     "faster-stable-stringify": "latest",
+    "jest": "^26.6.3",
     "json-stable-stringify": "latest",
     "nyc": "^14.1.0",
     "pre-commit": "^1.2.2",
-    "tape": "^4.11.0"
+    "source-map-support": "^0.5.19",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
   },
   "scripts": {
-    "eslint": "eslint index.js test",
-    "test-spec": "tape test/*.js",
-    "test": "npm run eslint && nyc npm run test-spec"
+    "build": "tsc",
+    "prepublish": "tsc",
+    "lint": "eslint . --ext .ts",
+    "test": "jest --config jestconfig.json"
   },
   "repository": {
     "type": "git",
@@ -31,18 +46,31 @@
     "stringify",
     "deterministic",
     "hash",
-    "stable"
+    "stable",
+    "typescript"
   ],
-  "author": {
-    "name": "James Halliday",
-    "email": "mail@substack.net",
-    "url": "http://substack.net"
-  },
+  "contributors": [
+    {
+      "name": "James Halliday",
+      "email": "mail@substack.net",
+      "url": "http://substack.net"
+    },
+    {
+      "name": "Evgeny Poberezkin"
+    },
+    {
+      "name": "Leon Song"
+    }
+  ],
   "license": "MIT",
   "nyc": {
+    "extension": [
+      ".ts"
+    ],
     "exclude": [
       "test",
-      "node_modules"
+      "node_modules",
+      "**/*.d.ts"
     ],
     "reporter": [
       "lcov",
@@ -50,6 +78,6 @@
     ]
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   }
 }
