@@ -1,26 +1,23 @@
-name: "Test"
+name: "Publish"
 
 on:
-  pull_request:
+  push:
     branches:
       - master
 
 jobs:
   release:
-    name: Build and run test
+    name: Build and publish
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup node.js ${{ matrix.node-version }}
+      - name: Setup node.js
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "10.x"
           registry-url: "https://registry.npmjs.org"
       - run: yarn install
-      - run: yarn test
+      - run: yarn publish
         env:
-          NODE_ENV: test
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
