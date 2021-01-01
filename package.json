@@ -1,6 +1,6 @@
 {
   "name": "quick-stable-stringify",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Deterministic `JSON.stringify()` - a faster version of Evgeny's fast-json-stable-strigify. Built with Typescript and modern Javascript.",
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
@@ -38,9 +38,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/epoberezkin/fast-json-stable-stringify.git"
+    "url": "git://github.com/sxwei123/quick-stable-stringify.git"
   },
-  "homepage": "https://github.com/epoberezkin/fast-json-stable-stringify",
+  "homepage": "git://github.com/sxwei123/quick-stable-stringify",
   "keywords": [
     "json",
     "stringify",
@@ -49,6 +49,9 @@
     "stable",
     "typescript"
   ],
+  "author": {
+    "name": "Leon Song"
+  },
   "contributors": [
     {
       "name": "James Halliday",
@@ -57,9 +60,6 @@
     },
     {
       "name": "Evgeny Poberezkin"
-    },
-    {
-      "name": "Leon Song"
     }
   ],
   "license": "MIT",
