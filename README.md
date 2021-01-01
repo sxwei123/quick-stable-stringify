@@ -1,6 +1,14 @@
 # quick-stable-stringify
 
+![Test status](https://github.com/sxwei123/quick-stable-stringify/workflows/Test/badge.svg?branch=develop)
+
 Deterministic `JSON.stringify()` - a faster version of [@epoberezkin](https://github.com/epoberezkin)'s [fast-json-stable-strigify](https://github.com/epoberezkin/fast-json-stable-stringify). Built with Typescript and modern Javascript.
+
+## Features
+
+- Support both browser and nodejs
+- Support custom comparator function
+- No dependencies
 
 ## Install
 
