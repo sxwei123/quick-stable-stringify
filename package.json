@@ -33,7 +33,8 @@
     "build": "tsc",
     "prepublish": "tsc",
     "lint": "eslint . --ext .ts",
-    "test": "jest --config jestconfig.json"
+    "test": "jest --config jestconfig.json",
+    "coverage": "jest --config jestconfig.json --coverage"
   },
   "repository": {
     "type": "git",
