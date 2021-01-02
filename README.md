@@ -4,9 +4,9 @@
 
 Deterministic `JSON.stringify()` - a faster version of [@epoberezkin](https://github.com/epoberezkin)'s [fast-json-stable-strigify](https://github.com/epoberezkin/fast-json-stable-stringify). Built with Typescript and modern Javascript.
 
-## Requirements
+## Compatibility
 
-NodeJS 10+ or broswer with ES2015 support.
+NodeJS 10+ or browser with ES2015 support.
 
 ## Features
 
@@ -66,7 +66,7 @@ interface KeyValue {
 type ComparatorFunction = (a: KeyValue, b: KeyValue) => number;
 ```
 
-For example, to sort on the object key names in reverse order:
+For example, to sort by the object keys in reverse order:
 
 ```js
 var stringify = require("quick-stable-stringify");
@@ -84,7 +84,7 @@ which results in the output string:
 {"c":8,"b":[{"z":6,"y":5,"x":4},7],"a":3}
 ```
 
-To sort on the object values in reverse order:
+To sort by the object values in reverse order:
 
 ```js
 var stringify = require("quick-stable-stringify");
@@ -110,7 +110,7 @@ TypeError will be thrown in case of circular object without this option.
 
 ## Benchmark
 
-To run benchmark (requires Node.js 6+):
+To run benchmark (requires Node.js 10+):
 
 ```
 node benchmark
@@ -129,7 +129,8 @@ The fastest is quick-stable-stringify
 
 ## Security contact
 
-[sxwei123](mailto:sxwei321@gmail.com)
+Mail to: [sxwei321@gmail.com](mailto:sxwei321@gmail.com)
+
 Please do NOT report security vulnerability via GitHub issues.
 
 ## License
