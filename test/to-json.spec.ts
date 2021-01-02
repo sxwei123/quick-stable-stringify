@@ -1,4 +1,4 @@
-import stringify from "../dist";
+import stringify from "../src";
 
 test("toJSON function", () => {
   const obj = {
