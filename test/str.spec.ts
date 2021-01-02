@@ -1,4 +1,4 @@
-import stringify from "../dist";
+import stringify from "../src";
 
 test("simple object", () => {
   const obj = { c: 6, b: [4, 5], a: 3, z: null };

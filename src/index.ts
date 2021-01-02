@@ -33,6 +33,7 @@ const jsonStringify = (
     }
 
     if (node === undefined) return;
+    if (node === null) return "null";
     if (typeof node === "number") return isFinite(node) ? "" + node : "null";
     if (typeof node !== "object") return JSON.stringify(node);
 
@@ -46,8 +47,6 @@ const jsonStringify = (
       }
       return out + "]";
     }
-
-    if (node === null) return "null";
 
     if (seen.has(node)) {
       if (allowCycle) return JSON.stringify("__cycle__");

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import stringify from "../dist";
+import stringify from "../src";
 
 test("nested", function () {
   const obj = { c: 8, b: [{ z: 6, y: 5, x: 4 }, 7], a: 3 };
