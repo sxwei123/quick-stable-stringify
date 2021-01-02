@@ -4,9 +4,13 @@
 
 Deterministic `JSON.stringify()` - a faster version of [@epoberezkin](https://github.com/epoberezkin)'s [fast-json-stable-strigify](https://github.com/epoberezkin/fast-json-stable-stringify). Built with Typescript and modern Javascript.
 
+## Requirements
+
+NodeJS 10+ or broswer with ES2015 support.
+
 ## Features
 
-- Support both browser and nodejs
+- Support both browser and NodeJS
 - Support custom comparator function
 - No dependencies
 
@@ -104,7 +108,7 @@ Pass `true` in `opts.cycles` to stringify circular property as `__cycle__` - the
 
 TypeError will be thrown in case of circular object without this option.
 
-# benchmark
+## Benchmark
 
 To run benchmark (requires Node.js 6+):
 
@@ -123,6 +127,11 @@ faster-stable-stringify x 18,320 ops/sec ±0.90% (88 runs sampled)
 The fastest is quick-stable-stringify
 ```
 
-# license
+## Security contact
 
-[MIT](https://github.com/epoberezkin/fast-json-stable-stringify/blob/master/LICENSE)
+[sxwei123](mailto:sxwei321@gmail.com)
+Please do NOT report security vulnerability via GitHub issues.
+
+## License
+
+[MIT](https://github.com/sxwei123/quick-stable-stringify/blob/master/LICENSE)
