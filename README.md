@@ -30,18 +30,10 @@ yarn add quick-stable-stringify
 
 ## Examples
 
-Node.JS with CommonJS:
-
 ```js
+// Node.JS with CommonJS
 const stringify = require("quick-stable-stringify");
-
-const obj = { c: 8, b: [{ z: 6, y: 5, x: 4 }, 7], a: 3 };
-console.log(stringify(obj));
-```
-
-Typescript or modern Javascript environment:
-
-```ts
+// Typescript or modern Javascript environment
 import stringify from "quick-stable-stringify";
 
 const obj = { c: 8, b: [{ z: 6, y: 5, x: 4 }, 7], a: 3 };
@@ -69,11 +61,11 @@ type ComparatorFunction = (a: KeyValue, b: KeyValue) => number;
 For example, to sort by the object keys in reverse order:
 
 ```js
-var stringify = require("quick-stable-stringify");
+const stringify = require("quick-stable-stringify");
 
-var obj = { c: 8, b: [{ z: 6, y: 5, x: 4 }, 7], a: 3 };
-var s = stringify(obj, function (a, b) {
-  return a.key < b.key ? 1 : -1;
+const obj = { c: 8, b: [{ z: 6, y: 5, x: 4 }, 7], a: 3 };
+const s = stringify(obj, function (a, b) {
+  return a.key < b.key ? 1 : a.key === b.key ? 0 : -1;
 });
 console.log(s);
 ```
@@ -87,11 +79,11 @@ which results in the output string:
 To sort by the object values in reverse order:
 
 ```js
-var stringify = require("quick-stable-stringify");
+const stringify = require("quick-stable-stringify");
 
-var obj = { d: 6, c: 5, b: [{ z: 3, y: 2, x: 1 }, 9], a: 10 };
-var s = stringify(obj, function (a, b) {
-  return a.value < b.value ? 1 : -1;
+const obj = { d: 6, c: 5, b: [{ z: 3, y: 2, x: 1 }, 9], a: 10 };
+const s = stringify(obj, function (a, b) {
+  return a.value < b.value ? 1 : a.value === b.value ? 0 : -1;
 });
 console.log(s);
 ```
