@@ -2,7 +2,9 @@
 
 ![Test status](https://github.com/sxwei123/quick-stable-stringify/workflows/Lint%20and%20Test/badge.svg?branch=master)
 
-Deterministic `JSON.stringify()` - a faster version of [@epoberezkin](https://github.com/epoberezkin)'s [fast-json-stable-strigify](https://github.com/epoberezkin/fast-json-stable-stringify). Built with Typescript and modern Javascript.
+Deterministic `JSON.stringify()`. Sort Javascript object in alphabetical order or the comparator function you specify.
+
+A faster version of [@epoberezkin](https://github.com/epoberezkin)'s [fast-json-stable-stringify](https://github.com/epoberezkin/fast-json-stable-stringify). Built with Typescript and modern Javascript.
 
 ## Compatibility
 
@@ -46,7 +48,7 @@ Options can be a comparator function or an object which has two optional propert
 
 ### cmp
 
-`opts.cmp` is the custom comparator function that user can specify. If custom comparator function is not provided, the JSON string of an object will be sorted by the alphanumeric order of object keys.
+`opts.cmp` is the custom comparator function that user can specify. If custom comparator function is not provided, the JSON string of an object will be sorted by the alphabetical order of object keys.
 The type of the comparator function is defined as:
 
 ```ts
