@@ -104,21 +104,10 @@ TypeError will be thrown in case of circular object without this option.
 
 ## Benchmark
 
-To run benchmark (requires Node.js 10+):
+Run benchmark (requires Node.js 10+):
 
 ```
-node benchmark
-```
-
-Results:
-
-```
-quick-stable-stringify x 25,499 ops/sec ±1.79% (82 runs sampled)
-fast-json-stable-stringify x 18,566 ops/sec ±0.43% (89 runs sampled)
-json-stable-stringify x 14,453 ops/sec ±0.62% (88 runs sampled)
-fast-stable-stringify x 20,763 ops/sec ±0.58% (88 runs sampled)
-faster-stable-stringify x 18,320 ops/sec ±0.90% (88 runs sampled)
-The fastest is quick-stable-stringify
+yarn benchmark
 ```
 
 ## Security contact

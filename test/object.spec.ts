@@ -52,6 +52,11 @@ test("array with empty string", () => {
   expect(stringify(obj)).toEqual('[4,"",6]');
 });
 
+test("array with NaN and Infinity", () => {
+  const obj = [4, NaN, Infinity];
+  expect(stringify(obj)).toEqual("[4,null,null]");
+});
+
 test("simple function", () => {
   const obj = () => {
     // empty

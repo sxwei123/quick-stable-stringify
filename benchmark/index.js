@@ -2,7 +2,7 @@
 
 const Benchmark = require("benchmark");
 const suite = new Benchmark.Suite();
-const testData = require("./test.json");
+const testData = require("./large-file.json");
 
 const stringifyPackages = {
   "quick-stable-stringify": require("../dist/index"),
