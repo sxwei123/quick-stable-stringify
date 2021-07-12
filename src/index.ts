@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 interface KeyValue {
   key: string;
@@ -12,7 +13,6 @@ interface Option {
 }
 
 const jsonStringify = (
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   data: any,
   opts?: Option | ComparatorFunction
 ): string | undefined => {
@@ -25,35 +25,36 @@ const jsonStringify = (
     comparator = opts?.cmp;
   }
 
-  const seen: Set<any> = new Set();
+  const seenObjects: Set<any> = new Set();
 
-  return (function stringify(node: any) {
+  return (function stringify(node: any): string | undefined {
     if (node && node.toJSON && typeof node.toJSON === "function") {
       node = node.toJSON();
     }
 
-    if (node === undefined) return;
-    if (node === null) return "null";
-    if (typeof node === "number") return isFinite(node) ? "" + node : "null";
-    if (typeof node !== "object") return JSON.stringify(node);
-
-    let out = "";
-
-    if (Array.isArray(node)) {
-      out += "[";
-      for (let i = 0; i < node.length; i++) {
-        if (i) out += ",";
-        out += stringify(node[i]) || "null";
-      }
-      return out + "]";
+    if (node === undefined) {
+      return;
+    }
+    if (node === null) {
+      return "null";
+    }
+    if (typeof node === "number") {
+      return isFinite(node) ? "" + node : "null";
+    }
+    if (typeof node !== "object") {
+      return JSON.stringify(node);
     }
 
-    if (seen.has(node)) {
+    if (Array.isArray(node)) {
+      return `[${node.map((item) => stringify(item) ?? "null").join(",")}]`;
+    }
+
+    if (seenObjects.has(node)) {
       if (allowCycle) return JSON.stringify("__cycle__");
       throw new TypeError("Converting circular structure to JSON");
     }
+    seenObjects.add(node);
 
-    seen.add(node);
     const sortedKeys = comparator
       ? Object.entries(node)
           .sort((a, b) =>
@@ -71,15 +72,19 @@ const jsonStringify = (
           .map((keyValue) => keyValue[0])
       : Object.keys(node).sort();
 
+    const objKeyValues: string[] = [];
     for (const key of sortedKeys) {
       const value = stringify(node[key]);
 
-      if (!value) continue;
-      if (out) out += ",";
-      out += `"${key}":${value}`;
+      if (!value) {
+        continue;
+      }
+
+      objKeyValues.push(`"${key}":${value}`);
     }
-    seen.delete(node);
-    return `{${out}}`;
+
+    seenObjects.delete(node);
+    return `{${objKeyValues.join(",")}}`;
   })(data);
 };
 
